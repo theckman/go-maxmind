@@ -1,25 +1,36 @@
 package minfraud
 
+// DeliverySpeed is a helper type for the shipping delivery speed enum
+// field as part of the MinFraud Request Shipping type.
 type DeliverySpeed int
 
 const (
-	ShippingSpeedUnknown DeliverySpeed = iota
-	ShippingSameDay
-	ShippingOvernight
-	ShippingExpedited
-	ShippingStandard
+	// DeliverySpeedUnknown is for when the delivery speed is not known
+	DeliverySpeedUnknown DeliverySpeed = iota
+
+	// DeliverySpeedSameDay is for same day deliveries.
+	DeliverySpeedSameDay
+
+	// DeliverySpeedOvernight is for overnight deliveries.
+	DeliverySpeedOvernight
+
+	// DeliverySpeedExpedited is for expedited deliveries.
+	DeliverySpeedExpedited
+
+	// DeliverySpeeStandard is for standard deliveries.
+	DeliverySpeedStandard
 )
 
 // MarshalJSON implements the json.Marshaler interface.
 func (d DeliverySpeed) MarshalJSON() ([]byte, error) {
 	switch d {
-	case ShippingSameDay:
+	case DeliverySpeedSameDay:
 		return []byte(`"same_day"`), nil
-	case ShippingOvernight:
+	case DeliverySpeedOvernight:
 		return []byte(`"overnight"`), nil
-	case ShippingExpedited:
+	case DeliverySpeedExpedited:
 		return []byte(`"expedited"`), nil
-	case ShippingStandard:
+	case DeliverySpeedStandard:
 		return []byte(`"standard"`), nil
 	default:
 		return []byte(`"unknown_delivery_speed"`), nil
@@ -27,22 +38,22 @@ func (d DeliverySpeed) MarshalJSON() ([]byte, error) {
 }
 
 // UnmarshalJSON implements the json.Unmarshaler interface.
-func (d DeliverySpeed) UnmarshalJSON(data []byte) (err error) {
+func (d *DeliverySpeed) UnmarshalJSON(data []byte) error {
 	if len(data) < 3 {
-		d = ShippingSpeedUnknown
+		*d = DeliverySpeedUnknown
 	} else {
 		switch string(data[1 : len(data)-1]) {
 		case "same_day":
-			d = ShippingSameDay
+			*d = DeliverySpeedSameDay
 		case "overnight":
-			d = ShippingOvernight
+			*d = DeliverySpeedOvernight
 		case "expedited":
-			d = ShippingExpedited
+			*d = DeliverySpeedExpedited
 		case "standard":
-			d = ShippingStandard
+			*d = DeliverySpeedStandard
 		default:
-			d = ShippingSpeedUnknown
+			*d = DeliverySpeedUnknown
 		}
 	}
-	return
+	return nil
 }
