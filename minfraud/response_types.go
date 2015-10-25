@@ -46,7 +46,7 @@ type BillingAddress struct {
 }
 
 type Insights struct {
-	MinFraudScore
+	Score
 	IPAddress       *GeoIP2             `json:"ip_address,omitempty"`
 	CreditCard      *CreditCardResponse `json:"credit_card,omitempty"`
 	ShippingAddress *ShippingAddress    `json:"shipping_address,omitempty"`

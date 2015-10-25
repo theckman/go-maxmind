@@ -9,7 +9,7 @@ const (
 	EventTypePurchase
 	EventTypeRecurringPurchase
 	EventTypeReferral
-	Survey
+	EventTypeSurvey
 )
 
 // MarshalJSON implements the json.Marshaler interface.
