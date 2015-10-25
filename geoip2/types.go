@@ -1,8 +1,3 @@
-// Package geoip2 provides types and functions to work with the MaxMind
-// GeoIP2 Web Services API.
-//
-// As of writing only the data structures have been implemented as they are
-// neded for the github.com/theckman/go-maxmind/minfraud package.
 package geoip2
 
 // Names is a struct to compose reused fields in to other structs.
@@ -240,29 +235,28 @@ func (g ContinentCode) MarshalJSON() ([]byte, error) {
 }
 
 // UnmarshalJSON implements the json.Unmarshaler interface.
-func (g ContinentCode) UnmarshalJSON(data []byte) error {
+func (g *ContinentCode) UnmarshalJSON(data []byte) error {
 	if len(data) < 3 {
-		g = ContinentUnknown
+		*g = ContinentUnknown
 	} else {
 		switch string(data[1 : len(data)-1]) {
 		case "AF":
-			g = ContinentAfrica
+			*g = ContinentAfrica
 		case "AN":
-			g = ContinentAntarctica
+			*g = ContinentAntarctica
 		case "AS":
-			g = ContinentAsia
+			*g = ContinentAsia
 		case "EU":
-			g = ContinentEurope
+			*g = ContinentEurope
 		case "NA":
-			g = ContinentNorthAmerica
+			*g = ContinentNorthAmerica
 		case "OC":
-			g = ContinentOceania
+			*g = ContinentOceania
 		case "SA":
-			g = ContinentSouthAmerica
+			*g = ContinentSouthAmerica
 		default:
-			g = ContinentUnknown
+			*g = ContinentUnknown
 		}
 	}
-
 	return nil
 }
