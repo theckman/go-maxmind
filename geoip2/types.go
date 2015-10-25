@@ -157,7 +157,7 @@ type MaxMind struct {
 	QueriesRemaining float64 `json:"queries_remaining,omitempty"`
 }
 
-// GeoIP is a struct representing the full response body of the GeoIP2 Web
+// GeoIP2 is a struct representing the full response body of the GeoIP2 Web
 // Services API.
 type GeoIP2 struct {
 	City               *City               `json:"city,omitempty"`
