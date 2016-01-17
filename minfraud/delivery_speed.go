@@ -17,7 +17,7 @@ const (
 	// DeliverySpeedExpedited is for expedited deliveries.
 	DeliverySpeedExpedited
 
-	// DeliverySpeeStandard is for standard deliveries.
+	// DeliverySpeedStandard is for standard deliveries.
 	DeliverySpeedStandard
 )
 
