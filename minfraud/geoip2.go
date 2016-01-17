@@ -33,13 +33,4 @@ type GeoIP2 struct {
 	Risk     float64         `json:"risk,omitempty"`
 	Country  *GeoIP2Country  `json:"country,omitempty"`
 	Location *GeoIP2Location `json:"location,omitempty"`
-
-	// City               *geoip2.City               `json:"city,omitempty"`
-	// Continent          *geoip2.Continent          `json:"continent,omitempty"`
-	// Postal             *geoip2.Postal             `json:"postal,omitempty"`
-	// RegisteredCountry  *geoip2.RegisteredCountry  `json:"registered_country,omitempty"`
-	// RepresentedCountry *geoip2.RepresentedCountry `json:"represented_country,omitempty"`
-	// Subdivisions       *geoip2.Subdivisions       `json:"subdivisions,omitempty"`
-	// Traits             *geoip2.Traits             `json:"traits,omitempty"`
-	// MaxMind            *geoip2.MaxMind            `json:"maxmind,omitempty"`
 }
