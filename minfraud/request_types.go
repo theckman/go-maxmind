@@ -19,14 +19,14 @@ type Event struct {
 
 // Account contains account information for the end-user on the site where the event took place.
 type Account struct {
-	UserID      string `json:"user_id,omitempty"`
-	UsernamdMD5 string `json:"username_md5,omitempty"` // TODO: create an MD5Stringer type or something
+	UserID      string      `json:"user_id,omitempty"`
+	UsernamdMD5 MD5Stringer `json:"username_md5,omitempty"`
 }
 
 // Email contains information about an email address to include within the lookup.
 type Email struct {
-	AddressMD5 string `json:"address,omitempty"` // TODO: create an MD5Stringer type or something
-	Domain     string `json:"domain,omitempty"`
+	AddressMD5 MD5Stringer `json:"address,omitempty"`
+	Domain     string      `json:"domain,omitempty"`
 }
 
 // ContactDetails is a struct used for compositing. Both the Shipping and Billing types
